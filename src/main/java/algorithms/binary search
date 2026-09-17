@@ -1,0 +1,34 @@
+#Name
+Binary search
+
+#Description
+
+#Intuition
+
+#Approach
+
+#Complexity
+-Time complexity
+
+-Space complexity
+Auxiliary Space
+
+Total Space
+
+#Code
+
+public int binarySearch(int[] array, int target) {
+    int left = 0;
+    int right = array.length - 1;
+    while (left <= right) {
+        int pivot = left + (right - left) / 2;
+        if (array[pivot] == target) {
+            return pivot;
+        } else if (array[pivot] < target) {
+            left = pivot + 1;
+        } else {
+            right = pivot - 1;
+        }
+    }
+    return - 1;
+}
