@@ -1,6 +1,9 @@
 #Theme
 Arrays
 
+#Counter
+1
+
 #Problem
 Write a function to find the longest common prefix string amongst an array of strings.
 If there is no common prefix, return an empty string "".
@@ -53,17 +56,19 @@ O(1)
 
 
 #Code
-public static longestCommonPrefix(String[] strs) {
-    Arrays.sort(strs);
-    String s1 = strs[0];
-    String s2 = strs[strs.length - 1];
-    int counter = 0;
-    for (int i = 0; i < s1.length(); i++) {
-        if (s1.charAt(i) == s2.charAt(i)) {
-            counter++;
-        } else {
-            break;
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        Arrays.sort(strs);
+        char[] chars1 = strs[0].toCharArray();
+        char[] chars2 = strs[strs.length - 1].toCharArray();
+        int counter = 0;
+        for (int i = 0; i < chars1.length; i++) {
+            if (chars1[i] == chars2[i]) {
+                counter++;
+            } else {
+                break;
+            }
         }
+        return strs[0].substring(0, counter);
     }
-    return s1.substring(0, counter);
 }

@@ -1,6 +1,9 @@
 #Theme
 Arrays
 
+#Counter
+1
+
 #Problem
 You are given an array prices where prices[i] is the price of a given stock on the ith day.
 You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
@@ -20,10 +23,14 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 #Intuition
 We should use two pointers approach here.
 L = prices[i], R = prices[L + 1]
-if prices[L] < prices[R] -> set L - R to maxProfit, increment R to find more profit
-if prices[L] >= prices[R] -> set L to R, R to L + 1
 
 #Approach
+1. Before the loop define int maxProfit
+2. In for loop init i = 0, j = 1, j < prices.length, j++
+3. Calculate profit prices[j] - profit[i]
+4. If profit > maxProfit - set profit to maxProfit
+5. If prices[j] < prices[i] - set j to i
+6. After loop return maxProfit
 
 #Complexity
 -Time complexity
@@ -36,4 +43,22 @@ O(1)
 Total Space
 O(1)
 
+
+
+
+
 #Code
+class Solution {
+    public int maxProfit(int[] prices) {
+        int maxProfit = 0;
+        for (int i = 0, j = 1; j < prices.length; j++) {
+            int profit = prices[j] - prices[i];
+            if (profit > maxProfit) {
+                maxProfit = profit;
+            } else if (prices[j] < prices[i]) {
+                i = j;
+            }
+        }
+        return maxProfit;
+    }
+}
