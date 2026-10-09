@@ -5,7 +5,7 @@ Array
 Easy
 
 #Counter
-1
+2
 
 #Problem
 Given an array nums of size n, return the majority element.
@@ -24,9 +24,9 @@ Output: 2
 #Approach
 1. Define 2 variables: candidate and counter
 2. During the iteration through array we set element to candidate
-3. Increment count if next element is the same as candidate
-4. Decrement count if next element is not the same as candidate
-5. If count == 0, set to candidate next element
+3. If count == 0, set to candidate next element
+4. Increment count if next element is the same as candidate
+5. Decrement count if next element is not the same as candidate
 6. Return candidate in the end
 
 #Algorithm

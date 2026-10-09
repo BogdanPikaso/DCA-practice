@@ -1,0 +1,59 @@
+#Theme
+Array
+
+#Complexity
+Medium
+
+#Counter
+1
+
+#Problem
+Given a string s, find the length of the longest substring without duplicate characters.
+
+Example 1:
+Input: s = "abcabcbb"
+Output: 3
+
+#Intuition
+
+#Approach
+1. Define variables int maxLength, char[] chars from the string, Set<Character>
+2. Inside for loop define 2 pointers i and j, increment only j
+3. Nested while loop while (set.contains(chars[j])) we should remove j element from the set and increment i
+4. If set doesn't contain j element - we should add j element to the set and calculate maxLength
+5. Return maxLength
+
+#Algorithm
+
+#Complexity
+-Time complexity
+O(n)
+
+-Space complexity
+Auxiliary Space
+O(n)
+
+Total Space
+O(n)
+
+#Code
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int maxLength = 0;
+        char[] chars = s.toCharArray();
+        Set<Character> set = new HashSet<>();
+
+        for (int i = 0, j = 0; j < chars.length; j++) {
+
+            while (set.contains(chars[j])) {
+                set.remove(chars[i]);
+                i++;
+            }
+            if (!set.contains(chars[j])) {
+                set.add(chars[j]);
+                maxLength = Math.max(maxLength, set.size());
+            }
+        }
+        return maxLength;
+    }
+}

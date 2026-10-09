@@ -20,7 +20,7 @@ Output: [9,5,3,10,10,12,14]
 
 #Approach
 1. We need 2 iterations of the loop.
-2. During the first loop we fill three variables: lessPivot, equalsPivot and biggerPivot.
+2. During the first loop we fill three variables: lessPivot, equalsPivot.
 3. During the second iteration we put element that
  - less then pivot starting from 0 element
  - equal to pivot starting from lessPivot counter
