@@ -34,7 +34,7 @@ Auxiliary Space
 O(n)
 
 Total Space
-O(n)
+O(min(N, M)) where M is character set
 
 #Code
 class Solution {
