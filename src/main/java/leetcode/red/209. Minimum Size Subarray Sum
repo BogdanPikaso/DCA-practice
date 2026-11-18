@@ -1,0 +1,62 @@
+#Theme
+Array
+
+#Complexity
+Medium
+
+#Counter
+1
+
+#Problem
+Given an array of positive integers nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to target.
+If there is no such subarray, return 0 instead.
+
+Example 1:
+Input:int target = 7;
+int[] nums = new int[]{2, 3, 1, 2, 4, 3};
+Output: 2
+
+Example 2:
+Input:int target = 4;
+int[] nums = new int[]{1, 4, 4};
+Output: 1
+
+
+#Intuition
+We should increase range of elements until sum of them will be equal or more then target.
+When target is reached we should shrink array until sum of elements will be less than target. And always calculate and return minimum array.
+
+#Approach
+
+
+#Algorithm
+
+
+#Complexity
+-Time complexity
+O(n)
+
+
+-Space complexity
+Auxiliary Space
+
+Total Space
+
+
+#Code
+    static public int minSubArrayLen(int target, int[] nums) {
+        int minArrayLentgh = 0;
+        int sum = 0;
+        for (int i = 0, j = 0; j < nums.length; j++) {
+            sum += nums[j];
+            if (sum >= target) {
+                while (sum - nums[i] >= target) {
+                    sum -= nums[i];
+                    i++;
+                }
+                int minSize = j - i + 1;
+                minArrayLentgh = minArrayLentgh > 0 ? Math.min(minArrayLentgh, minSize) : minSize;
+            }
+        }
+        return minArrayLentgh;
+    }
